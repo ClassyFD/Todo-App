@@ -11,12 +11,6 @@ class ListDetails extends Component {
       description:'',
     }
   }
-  componentDidMount() {
-    console.log('mounted')
-  }
-  componentWillReceiveProps(props) {
-    console.log(props)
-  }
   toggleEdit() {
     this.setState({
       edit: this.state.edit? false : true
@@ -100,7 +94,6 @@ class ListDetails extends Component {
       </div>
     ) : null
     if (propItem.itemSelected && propItem.itemSelected.title) {
-      console.log(propItem.itemSelected.completed)
       currentItem = (
         <div className='list-details-item-loaded'>
           <header className='list-details-item-header'>

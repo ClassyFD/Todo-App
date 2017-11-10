@@ -5,9 +5,6 @@ import {Link} from 'react-router-dom';
 import {Switch, Route} from 'react-router';
 import ListDetails from '../list/ListDetails';
 class Home extends Component {
-  componentWillReceiveProps(props) {
-    console.log(props, 'props')
-  }
   removeItem(item, title, description, list) {
     this.props.dispatch({
       type:'REMOVE_ITEM',
@@ -63,7 +60,6 @@ class Home extends Component {
         );
     if (props.newList.length > 0) {
       newList = props.newList.map((el, i)=>{
-        console.log(el)
         return (
           <section className='home-new-list-elements' key={i}>
             <Link to='/' onClick={(e)=>{this.removeItem(e.target, el.title, el.description, 'new')}} className='home-new-erase'/>
@@ -79,7 +75,6 @@ class Home extends Component {
     }
     if (props.inProgressList.length > 0) {
       inProgressList = props.inProgressList.map((el, i)=>{
-        console.log(el)
         return (
           <section className='home-in-progress-list-elements' key={i}>
             <Link to='/' onClick={(e)=>{this.removeItem(e.target, el.title, el.description, 'progress')}} className='home-in-progress-delete'/>
@@ -95,7 +90,6 @@ class Home extends Component {
     }
     if (props.completedList.length > 0) {
       completedList = props.completedList.map((el, i)=>{
-        console.log(el)
         return (
           <section className='home-completed-list-elements' key={i}>
             <Link to='/' onClick={(e)=>{this.removeItem(e.target, el.title, el.description, 'completed')}} className='home-completed-delete'/>
