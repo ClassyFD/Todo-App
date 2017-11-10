@@ -22,7 +22,6 @@ export default function reducer(state = initialState, action){
   switch(action.type){
     case SAVE_CHANGES:
       return Object.assign({}, state, action.comp==='new'? {newList: state.newList.map((e)=>{
-        
         return Object.assign({}, e, {
           title:action.title && action.oldTitle === e.title? action.title : e.title, 
           description:action.description && action.oldDescription === e.description? action.description:e.description,
